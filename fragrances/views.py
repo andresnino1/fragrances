@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from .models import FragrancesModel
 
 
@@ -20,4 +20,13 @@ class DashBoardView(TemplateView):
 class FragrancesList(ListView):
     model = FragrancesModel
     template_name = 'dashboard.html'
-    context_object_name = 'fragrance_list'
+    context_object_name = 'fragrance_list'  # esta categoria renombra objetc_list por un nombre mas legible
+    paginate_by = 2
+
+
+# esta vista retorna la pagina de detalle de cada Fragrancia
+
+class FragrancesDetailView(DetailView):
+    model = FragrancesModel
+    context_object_name = 'fragrance_detail'
+    template_name = 'fragrances-detail.html'
