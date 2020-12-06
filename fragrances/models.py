@@ -120,13 +120,18 @@ class FragrancesModel(models.Model):
     bio_degradable = models.BooleanField()
     dangerous_good = models.BooleanField()
     ai = models.BooleanField()
-    # user_comment = models.ManyToManyField(CustomUser) #Relation Many to Many (it is like a TAG)
+
+    # user_comment = models.ManyToManyField(CommentsModel)  # Relation Many to Many (it is like a TAG)
+
+    def __str__(self):
+        return self.fragrance_code
 
 
 class CommentsModel(models.Model):
     comment = models.TextField()
-    author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
+    # el campo author on_delete, si se borra un author el comentario queda en la BD
+    author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
     fragrance = models.ForeignKey(FragrancesModel, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.comment
+        return str(self.author)

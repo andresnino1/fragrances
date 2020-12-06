@@ -1,8 +1,8 @@
 from django.urls import path
-from fragrances.views import HomePageView, DashBoardView
+from fragrances.views import HomePageView, FragrancesList, DashBoardView
 
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
-    path('dashboard/', DashBoardView.as_view(), name='dashboard'),
+    path('dashboard/', FragrancesList.as_view(), name='dashboard'),
 ]
