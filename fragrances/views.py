@@ -21,7 +21,7 @@ class FragrancesList(ListView):
     model = FragrancesModel
     template_name = 'dashboard.html'
     context_object_name = 'fragrance_list'  # esta categoria renombra objetc_list por un nombre mas legible
-    paginate_by = 2
+
 
 
 # esta vista retorna la pagina de detalle de cada Fragrancia

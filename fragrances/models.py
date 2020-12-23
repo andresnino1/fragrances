@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class CustomUser(AbstractUser):
-    age = models.PositiveIntegerField(null=True, blank=True)
+    age = models.PositiveIntegerField(null=True, blank=True, verbose_name="edad")
 
     # def __str__(self):
     #    return self.name
@@ -91,35 +91,36 @@ class NotaFondoModel(models.Model):
 
 
 class FragrancesModel(models.Model):
-    fragrance_code = models.CharField(max_length=20)
-    essential_club = models.BooleanField()
-    vigente = models.BooleanField()
-    application = models.ManyToManyField(ApplicationModel)  # Relation Many to Many (it is like a TAG)
-    commercial_name = models.CharField(max_length=20)
-    box = models.IntegerField()
-    cost_kilo_us = models.FloatField()
-    selling_price_aud = models.FloatField()
-    first_family = models.ManyToManyField(FirstFamilyModel)  # Relation Many to Many (it is like a TAG)
-    second_family = models.ManyToManyField(SecondFamilyModel)  # Relation Many to Many (it is like a TAG)
-    third_family = models.ManyToManyField(ThirdFamilyModel)  # Relation Many to Many (it is like a TAG)
-    market_type = models.ManyToManyField(MarketTypeModel)  # Relation Many to Many (it is like a TAG)
-    nota_salida = models.ManyToManyField(NotaSalidaModel)  # Relation Many to Many (it is like a TAG)
-    nota_cuerpo = models.ManyToManyField(NotaCuerpoModel)  # Relation Many to Many (it is like a TAG)
-    nota_fondo = models.ManyToManyField(NotaFondoModel)  # Relation Many to Many (it is like a TAG)
-    expiry_date = models.DateField()
-    sample_size = models.FloatField()
-    technology = models.ManyToManyField(TechnologyModel)  # Relation Many to Many (it is like a TAG)
-    collection_prom = models.ManyToManyField(CollectionModel)  # Relation Many to Many (it is like a TAG)
-    shortlisted = models.BooleanField()
-    won_selling = models.BooleanField()
-    natural_extracts = models.ManyToManyField(NaturalExtractsModel)  # Relation Many to Many (it is like a TAG)
-    allergen = models.FloatField()
-    natural_percentage = models.BooleanField()
-    natural_derived = models.BooleanField()
-    ecocert = models.BooleanField()
-    bio_degradable = models.BooleanField()
-    dangerous_good = models.BooleanField()
-    ai = models.BooleanField()
+    fragrance_code = models.CharField(max_length=20, verbose_name="fragrance code")
+    essential_club = models.BooleanField(verbose_name="essential club")
+    vigente = models.BooleanField(verbose_name="vigente")
+    application = models.ManyToManyField(ApplicationModel, verbose_name="application")  # Relation Many to Many (it is like a TAG)
+    commercial_name = models.CharField(max_length=20, verbose_name="commercial name")
+    box = models.IntegerField(verbose_name="box")
+    cost_kilo_us = models.FloatField(verbose_name="cost kilo")
+    selling_price_aud = models.FloatField(verbose_name="selling price")
+    first_family = models.ManyToManyField(FirstFamilyModel, verbose_name="first")  # Relation Many to Many (it is like a TAG)
+    second_family = models.ManyToManyField(SecondFamilyModel, verbose_name="second family")  # Relation Many to Many (it is like a TAG)
+    third_family = models.ManyToManyField(ThirdFamilyModel, verbose_name="third family")  # Relation Many to Many (it is like a TAG)
+    market_type = models.ManyToManyField(MarketTypeModel, verbose_name="market type")  # Relation Many to Many (it is like a TAG)
+    nota_salida = models.ManyToManyField(NotaSalidaModel, verbose_name="nota salida")  # Relation Many to Many (it is like a TAG)
+    nota_cuerpo = models.ManyToManyField(NotaCuerpoModel, verbose_name="nota cuerpo")  # Relation Many to Many (it is like a TAG)
+    nota_fondo = models.ManyToManyField(NotaFondoModel, verbose_name="nota fondo")  # Relation Many to Many (it is like a TAG)
+    expiry_date = models.DateField(verbose_name="expiry date")
+    sample_size = models.FloatField(verbose_name="sample size")
+    technology = models.ManyToManyField(TechnologyModel, verbose_name="technology")  # Relation Many to Many (it is like a TAG)
+    collection_prom = models.ManyToManyField(CollectionModel, verbose_name="collection")  # Relation Many to Many (it is like a TAG)
+    shortlisted = models.BooleanField(verbose_name="shortlisted")
+    won_selling = models.BooleanField(verbose_name="won selling")
+    natural_extracts = models.ManyToManyField(NaturalExtractsModel, verbose_name="natural extracts")  # Relation Many to Many (it is like a TAG)
+    allergen = models.FloatField(verbose_name="allergen")
+    natural_percentage = models.BooleanField(verbose_name="natural percentage")
+    natural_derived = models.BooleanField(verbose_name="natural derived")
+    ecocert = models.BooleanField(verbose_name="ecocert")
+    bio_degradable = models.BooleanField(verbose_name="bio degradable")
+    dangerous_good = models.BooleanField(verbose_name="dangerous good")
+    ai = models.BooleanField(verbose_name="ai")
+
 
     # user_comment = models.ManyToManyField(CommentsModel)  # Relation Many to Many (it is like a TAG)
 
@@ -130,7 +131,7 @@ class FragrancesModel(models.Model):
 class CommentsModel(models.Model):
     comment = models.TextField()
     # el campo author on_delete, si se borra un author el comentario queda en la BD
-    author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, verbose_name="author")
     fragrance = models.ForeignKey(FragrancesModel, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):

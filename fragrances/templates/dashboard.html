@@ -4,106 +4,192 @@
     <h1>DASHBOARD - PROJECT</h1>
     <p>List of Fragrances</p>
 
-    <!-- En esta parte del se hace un recorrido por la lista de fragrancias y se imprimen -->
+    {#    <!-- En esta parte del se hace un recorrido por la lista de fragrancias y se imprimen -->#}
+    {#    #}
+    {##}
+    {#    {% for f in fragrance_list %}#}
+    {##}
+    {#        <li>{{ f.fragrance_code }}</li>#}
+    {##}
+    {#    {% endfor %}#}
+    {##}
+    {##}
+    {#    <!-- This example requires Tailwind CSS v2.0+ -->#}
+    {#    <div class="flex flex-col">#}
+    {#        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">#}
+    {#            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">#}
+    {#                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">#}
+    {#                    <table class="min-w-full divide-y divide-gray-200">#}
+    {#                        <thead class="bg-gray-50">#}
+    {#                        <tr>#}
+    {#                            <th scope="col"#}
+    {#                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#}
+    {#                                Fragrance Code#}
+    {#                            </th>#}
+    {#                            <th scope="col"#}
+    {#                                class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#}
+    {#                                Essential Club#}
+    {#                            </th>#}
+    {#                            <th scope="col"#}
+    {#                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#}
+    {#                                Vigente#}
+    {#                            </th>#}
+    {#                            <th scope="col"#}
+    {#                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#}
+    {#                                Role#}
+    {#                            </th>#}
+    {#                            <th scope="col" class="relative px-6 py-3">#}
+    {#                                <span class="sr-only">Edit</span>#}
+    {#                            </th>#}
+    {#                        </tr>#}
+    {#                        </thead>#}
+    {#                        <tbody class="bg-white divide-y divide-gray-200">#}
+    {##}
+    {#                        <!-- INICIO DEL LA LISTA DE FRAGANCIAS -->#}
+    {##}
+    {##}
+    {#                        {% for f in fragrance_list %}#}
+    {##}
+    {##}
+    {#                            <tr>#}
+    {#                                <td class="px-6 py-4 whitespace-nowrap">#}
+    {#                                    <div class="flex items-center">#}
+    {#                                        <div class="ml-4">#}
+    {#                                            <div class="text-sm font-medium text-gray-900">#}
+    {#                                                {{ f.fragrance_code }}#}
+    {#                                            </div>#}
+    {#                                        </div>#}
+    {#                                    </div>#}
+    {#                                </td>#}
+    {#                                <td class="px-2 py-4 whitespace-nowrap">#}
+    {#                                    <div class="text-sm text-gray-900">{{ f.essential_club }}</div>#}
+    {#                                </td>#}
+    {#                                <td class="px-6 py-4 whitespace-nowrap">#}
+    {#                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">#}
+    {#                  {{ f.vigente }}#}
+    {#                </span>#}
+    {#                                </td>#}
+    {#                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">#}
+    {#                                    Admin#}
+    {#                                </td>#}
+    {#                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">#}
+    {#                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>#}
+    {#                                </td>#}
+    {#                            </tr>#}
+    {#                        {% endfor %}#}
+    {##}
+    {#                        <!-- FINALIZACION DE LA LISTA DE FRAGANCIAS-->#}
+    {##}
+    {##}
+    {#                        </tbody>#}
+    {#                    </table>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {##}
+    {#    <!-- IMPMEMENTACION DE PAGINACION  -->#}
+    {#    {% if page_obj.has_previous %}#}
+    {#        <a href="?page=1">&laquo; first</a>#}
+    {#        <a href="?page={{ page_obj.previous_page_number }}">previous</a>#}
+    {#    {% endif %}#}
+    {##}
+    {#    <span>#}
+    {#            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.#}
+    {#        </span>#}
+    {##}
+    {#    {% if page_obj.has_next %}#}
+    {#        <a href="?page={{ page_obj.next_page_number }}">next</a>#}
+    {#        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>#}
+    {#    {% endif %}#}
+    {##}
+    {#    <!-- FINAL PAGINACION -->#}
+    {##}
 
-    {% for f in fragrance_list %}
-
-        <li>{{ f.fragrance_code }}</li>
-
-    {% endfor %}
+    <!-- en esta parte implemento otro uso de listados con datatable -->
 
 
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Fragrance Code
-                            </th>
-                            <th scope="col"
-                                class="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Essential Club
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Vigente
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Role
-                            </th>
-                            <th scope="col" class="relative px-6 py-3">
-                                <span class="sr-only">Edit</span>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-
-                        <!-- INICIO DEL LA LISTA DE FRAGANCIAS -->
+    <body class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
 
 
-                        {% for f in fragrance_list %}
+    <!--Container-->
+    <div class="container w-full md:w-4/5 xl:w-3/5  mx-auto px-2">
+
+        <!--Title-->
+        <h1 class="flex items-center font-sans font-bold break-normal text-indigo-500 px-2 py-8 text-xl md:text-2xl">
+            Responsive <a class="underline mx-2" href="https://datatables.net/">DataTables.net</a> Table
+        </h1>
 
 
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                {{ f.fragrance_code }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-2 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">{{ f.essential_club }}</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  {{ f.vigente }}
-                </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    Admin
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-
-                        <!-- FINALIZACION DE LA LISTA DE FRAGANCIAS-->
+        <!--Card-->
+        <div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
 
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
+                <thead>
+                <tr>
+                    <th data-priority="1">Name</th>
+                    <th data-priority="2">Position</th>
+                    <th data-priority="3">Office</th>
+                    <th data-priority="4">Age</th>
+                    <th data-priority="5">Start date</th>
+                    <th data-priority="6">Salary</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for f in fragrance_list %}
+                    <tr>
+                        <td>{{ f.box }}</td>
+                        <td>{{ f.fragrance_code }}</td>
+                        <td> {% for sf in f.first_family.all %}
+                            <span>{{ sf }} </span><br>
+                        {% endfor %}  </td>
+                        <td>{{ f.sample_size }}</td>
+                        <td> {{ f.expiry_date }}  </td>
+                        <td>{{ f.selling_price_aud }} </td>
+                    </tr>
+                {% endfor %}
+                <!-- Rest of your data (refer to https://datatables.net/examples/server_side/ for server side processing)-->
+
+
+                </tbody>
+
+            </table>
+
+
         </div>
+        <!--/Card-->
+
+
     </div>
+    <!--/container-->
 
 
-    <!-- IMPMEMENTACION DE PAGINACION  -->
-    {% if page_obj.has_previous %}
-        <a href="?page=1">&laquo; first</a>
-        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-    {% endif %}
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <span >
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
+    <!--Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
-    {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}">next</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-    {% endif %}
+            var table = $('#example').DataTable({
+                responsive: true
+            })
+                .columns.adjust()
+                .responsive.recalc();
+        });
 
-    <!-- FINAL PAGINACION -->
+    </script>
+
+    </body>
+
+
+
+
 
 {% endblock content %}
 
