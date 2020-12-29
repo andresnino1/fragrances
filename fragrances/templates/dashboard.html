@@ -16,9 +16,10 @@
             </tr>
             </thead>
             <tbody>
-            {% for f in fragrance_list %}
+            {% for fragrance in fragrance_list %}
                 <tr>
-                    <th scope="row">{{ f.fragrance_code }}</th>
+                    <th scope="row"><a href="{% url 'fragrance_detail' fragrance.id %}">{{ fragrance.fragrance_code }}</a></th>
+
                     {##}
                     {#                    <td>{% for ff in f.first_family.all %}#}
                     {#                        <span>{{ ff }}</span><br>#}
@@ -27,8 +28,8 @@
                     <td>
 
                         <ul class="list-group list-group-flush">
-                            {% for ff in f.first_family.all %}
-                                <li class="list-group-item">{{ ff }} </li>
+                            {% for firstfamily in fragrance.first_family.all %}
+                                <li class="list-group-item">{{ firstfamily }} </li>
                             {% endfor %}
 
                         </ul>
@@ -36,11 +37,11 @@
 
                     </td>
 
-                    <td>{{ f.expiry_date }}</td>
+                    <td>{{ fragrance.expiry_date }}</td>
                     <td>
                         <ul class="list-group list-group-flush">
-                            {% for mt in f.market_type.all %}
-                                <li class="list-group-item">{{ mt }} </li>
+                            {% for market in fragrance.market_type.all %}
+                                <li class="list-group-item">{{ market }} </li>
                             {% endfor %}
 
                         </ul>
