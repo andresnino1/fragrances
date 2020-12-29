@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <p>Lista de Fragrancias</p>
+
+    {% for f in fragrance_list %}
+
+        <li>{{ f.fragrance_code }}</li>
+
+    {% endfor %}
+
+
+
+
+{% endblock content %}
