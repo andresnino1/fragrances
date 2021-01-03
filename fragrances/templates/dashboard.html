@@ -4,8 +4,215 @@
 
     <div class="container">
         <h1>DASHBOARD - PROJECT</h1>
-        <p>List of Fragrances</p>
 
+        <div>
+            <p>Filter Per Categories</p>
+
+            <div class="card border rounded-3 border-3 mb-3">
+                <div class="card-body">
+                    <form>
+
+                        <!-------- First row  -------->
+                        <div class="row mb-3">
+                            <div class="col">
+
+
+                                <input type="text" class="form-control" placeholder="Fragrance Code">
+
+
+                            </div>
+                            <div class="col">
+
+                                <input type="text" class="form-control" placeholder="Application">
+
+
+                            </div>
+                            <div class="col">
+
+                                <input type="text" class="form-control" placeholder="Commercial Name">
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ----- Second Row --------- -->
+                        <div class="row mb-3">
+
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <p class="mt-1 mb-0 ms-2">Family</p>
+                                    <div class="card-body">
+
+                                        <div class="mb-1">
+                                            <input type="text" class="form-control" placeholder="First Family">
+                                        </div>
+                                        <div class="mb-1">
+                                            <input type="text" class="form-control" placeholder="Second Family">
+                                        </div>
+                                        <div class="mb-1">
+                                            <input type="text" class="form-control" placeholder="Third Family">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <p class="mt-1 mb-0 ms-2">Nota</p>
+                                    <div class="card-body">
+
+                                        <div class="mb-1">
+                                            <input type="text" class="form-control" placeholder="Nota Salida">
+                                        </div>
+                                        <div class="mb-1">
+                                            <input type="text" class="form-control" placeholder="Nota Cuerpo">
+                                        </div>
+                                        <div class="mb-1">
+                                            <input type="text" class="form-control" placeholder="Nota Fondo">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <input type="text" class="form-control mb-2" placeholder="Market Type">
+                                <input type="text" class="form-control mb-2" placeholder="Technology">
+                                <input type="text" class="form-control mb-2" placeholder="Collection">
+                                <input type="text" class="form-control mb-2" placeholder="Natural Extract">
+                            </div>
+
+
+                        </div>
+
+                        <!--  third row  -->
+                        <div class="row mb-3 ms-1 ">
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Essential Club
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Vigente
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Short Listed
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Won Selling
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Natural Derived
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Ecocert
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- forth row -->
+
+                        <div class="row mb-3 ms-1 ">
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Bio Degradable
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Dangerous Good
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        AI
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            
+
+
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <p>List of Fragrances</p>
         <table class="table table-hover">
             <thead>
             <tr>
@@ -18,7 +225,8 @@
             <tbody>
             {% for fragrance in fragrance_list %}
                 <tr>
-                    <th scope="row"><a href="{% url 'fragrance_detail' fragrance.id %}">{{ fragrance.fragrance_code }}</a></th>
+                    <th scope="row"><a
+                            href="{% url 'fragrance_detail' fragrance.id %}">{{ fragrance.fragrance_code }}</a></th>
 
                     {##}
                     {#                    <td>{% for ff in f.first_family.all %}#}
@@ -55,7 +263,7 @@
         </table>
 
 
-        <!-- Pagination section fragrance list -->
+        <!-- --------------------Pagination section fragrance list -----------------------------  -->
         {% if page_obj.has_other_pages %}
             <ul class="pagination">
                 {% if page_obj.has_previous %}
@@ -80,7 +288,7 @@
                 {% endif %}
             </ul>
         {% endif %}
-        <!-- END of pagination section -->
+        <!-- --------------------------------- END of pagination section  ------------------------------  -->
 
     </div>
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import TemplateView, ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import FragrancesModel
 
 
@@ -32,3 +33,12 @@ class FragrancesDetailView(DetailView):
     context_object_name = 'fragrance_detail'
     template_name = 'fragrances-detail.html'
 
+
+# this view is a form to add new fragrances in database
+
+class AddFragrancesView(CreateView):
+    model = FragrancesModel
+    context_object_name = 'create_fragrance'
+    fields = '__all__'
+    template_name = "addfragrance.html"
+    #success_url = reverse_lazy('dashboard')

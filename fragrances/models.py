@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 
 
 # Create your models here.
@@ -90,8 +91,9 @@ class NotaFondoModel(models.Model):
         return self.nota_fondo
 
 
+
 class FragrancesModel(models.Model):
-    fragrance_code = models.CharField(max_length=20, verbose_name="fragrance code")
+    fragrance_code = models.CharField(unique=True, max_length=20, verbose_name="fragrance code")
     essential_club = models.BooleanField(verbose_name="essential club")
     vigente = models.BooleanField(verbose_name="vigente")
     application = models.ManyToManyField(ApplicationModel, verbose_name="application")  # Relation Many to Many (it is like a TAG)
@@ -126,6 +128,10 @@ class FragrancesModel(models.Model):
 
     def __str__(self):
         return self.fragrance_code
+
+# after success form submit get_absolute_url will return to the fragrance detail url
+    def get_absolute_url(self):
+        return reverse('fragrance_detail', args=[str(self.id)])
 
 
 class CommentsModel(models.Model):
