@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import FragrancesModel
+from .filters import FragranceFilter
 
 
 # Create your views here.
@@ -23,6 +24,16 @@ class FragrancesList(ListView):
     template_name = 'dashboard.html'
     context_object_name = 'fragrance_list'  # esta categoria renombra objetc_list por un nombre mas legible
     paginate_by = 3
+
+# In this section I am adding the filter as a context and it passes to the template
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context['fragrance_filter'] = FragranceFilter(self.request.GET, queryset=self.get_queryset() )
+        return context
+
+
+        
+        
 
 
 
