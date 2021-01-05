@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
-
+{% load widget_tweaks %}
 {% block content %}
 
     <div class="container">
         <div>mi filtro</div>
 
+        {{ fragrance_filter.form.as_p }}
+
         <form method="GET">
             <div class="row">
 
                 <div class="col">
-                {{ fragrance_filter.form.as_p }}
+                    <div class="form-group row">
+
+                            {% render_field fragrance_filter.form.fragrance_code__icontains class='form-control' placeholder='Fragrance Code' label='code' %}
+
                     </div>
-                <div class="col">
-                  segunda col
-                  
-
                 </div>
-                
+                                <div class="col">
+                                    <div class="form-group">
+                                        <p>comercial name :</p>
 
+                                        {% render_field fragrance_filter.form.commercial_name__icontains class='form-control' %}
+                                    </div>
+                                </div>
             </div>
             {#    {% for f in  fragrance_filter.form %}#}
             {##}
