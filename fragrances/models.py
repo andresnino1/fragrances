@@ -94,7 +94,7 @@ class NotaFondoModel(models.Model):
 
 class FragrancesModel(models.Model):
     fragrance_code = models.CharField(unique=True, max_length=20, verbose_name="fragrance code")
-    essential_club = models.BooleanField(verbose_name="essential club")
+    essential_club = models.BooleanField(verbose_name="essential club", default=False, null=False)
     vigente = models.BooleanField(verbose_name="vigente")
     application = models.ManyToManyField(ApplicationModel, verbose_name="application")  # Relation Many to Many (it is like a TAG)
     commercial_name = models.CharField(max_length=20, verbose_name="commercial name")

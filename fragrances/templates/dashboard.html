@@ -2,48 +2,26 @@
 {% load widget_tweaks %}
 {% block content %}
 
-    <div class="container">
-        <div>mi filtro</div>
-
-        {{ fragrance_filter.form.as_p }}
-
-        <form method="GET">
-            <div class="row">
-
-                <div class="col">
-                    <div class="form-group row">
-
-                            {% render_field fragrance_filter.form.fragrance_code__icontains class='form-control' placeholder='Fragrance Code' label='code' %}
-
-                    </div>
-                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <p>comercial name :</p>
-
-                                        {% render_field fragrance_filter.form.commercial_name__icontains class='form-control' %}
-                                    </div>
-                                </div>
-            </div>
-            {#    {% for f in  fragrance_filter.form %}#}
-            {##}
-            {#       <p>{{ f }}</p>#}
-            {#    {% endfor %}#}
-
-
-            <button type="submit" class="btn btn-primary">SEARCH</button>
-        </form>
-        <ul>
-            {% for filter in fragrance_filter.qs %}
-                <li>
-                    <p>{{ filter.fragrance_code }}</p>
-                </li>
-
-            {% endfor %}
-
-
-        </ul>
-    </div>
+{#    <div class="container">#}
+{#        <div>mi filtro</div>#}
+{##}
+{##}
+{#        <form method="GET">#}
+{#            {{ fragrance_filter.form.as_p }}#}
+{##}
+{#            <button type="submit" class="btn btn-primary">SEARCH</button>#}
+{#        </form>#}
+{#        <ul>#}
+{#            {% for filter in fragrance_filter.qs %}#}
+{#                <li>#}
+{#                    <p>{{ filter.fragrance_code }}</p>#}
+{#                </li>#}
+{##}
+{#            {% endfor %}#}
+{##}
+{##}
+{#        </ul>#}
+{#    </div>#}
 
     <div class="container">
         <h1>DASHBOARD - PROJECT</h1>
@@ -60,23 +38,20 @@
                         <!-------- First row  -------->
                         <div class="row mb-3">
                             <div class="col">
-
-
-                                <input type="search" class="form-control" placeholder="Fragrance Code"
-                                       name="fragrance_code">
-
-
-                            </div>
-                            <div class="col">
-
-                                <input type="search" class="form-control" placeholder="Application" name="application">
+                                <label for="id_fragrance_code">Fragrance Code:</label>
+                                {% render_field fragrance_filter.form.fragrance_code class='form-control' placeholder='Fragrance Code' %}
 
 
                             </div>
                             <div class="col">
+                                <label for="id_commercial_name">Commercial Name:</label>
+                                {% render_field fragrance_filter.form.commercial_name class='form-control' placeholder='Commercial Name' %}
 
-                                <input type="search" class="form-control" placeholder="Commercial Name"
-                                       name="commercial_name">
+
+                            </div>
+                            <div class="col">
+                                <label for="id_application">Application:</label>
+                                {% render_field fragrance_filter.form.application class='form-select' placeholder='application' %}
 
 
                             </div>
@@ -93,16 +68,16 @@
                                     <div class="card-body">
 
                                         <div class="mb-1">
-                                            <input type="search" class="form-control" placeholder="First Family"
-                                                   name="first_family">
+                                            <label for="id_first_family">First Family</label>
+                                            {% render_field fragrance_filter.form.first_family class='form-control' %}
                                         </div>
                                         <div class="mb-1">
-                                            <input type="search" class="form-control" placeholder="Second Family"
-                                                   name="second_family">
+                                            <label for="id_second_family">Second Family</label>
+                                            {% render_field fragrance_filter.form.second_family class='form-control' %}
                                         </div>
                                         <div class="mb-1">
-                                            <input type="search" class="form-control" placeholder="Third Family"
-                                                   name="third_family">
+                                            <label for="id_third_family">Third Family</label>
+                                            {% render_field fragrance_filter.form.third_family class='form-control' %}
                                         </div>
                                     </div>
                                 </div>
@@ -115,30 +90,31 @@
                                     <div class="card-body">
 
                                         <div class="mb-1">
-                                            <input type="search" class="form-control" placeholder="Nota Salida"
-                                                   name="nota_salida">
+                                            <label for="id_nota_salida">Nota Salida</label>
+                                            {% render_field fragrance_filter.form.nota_salida class='form-control' %}
                                         </div>
                                         <div class="mb-1">
-                                            <input type="search" class="form-control" placeholder="Nota Cuerpo"
-                                                   name="nota_cuerpo">
+                                            <label for="id_nota_cuerpo">Nota Cuerpo</label>
+                                            {% render_field fragrance_filter.form.nota_cuerpo class='form-control' %}
                                         </div>
                                         <div class="mb-1">
-                                            <input type="search" class="form-control" placeholder="Nota Fondo"
-                                                   name="nota_fondo">
+                                            <label for="id_nota_fondo">Nota Fondo</label>
+                                            {% render_field fragrance_filter.form.nota_fondo class='form-control' %}
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col">
-                                <input type="search" class="form-control mb-2" placeholder="Market Type"
-                                       name="market_type">
-                                <input type="search" class="form-control mb-2" placeholder="Technology"
-                                       name="technology">
-                                <input type="search" class="form-control mb-2" placeholder="Collection"
-                                       name="collection">
-                                <input type="search" class="form-control mb-2" placeholder="Natural Extract"
-                                       name="natural_extract">
+                                <label for="id_nota_salida">Market Type</label>
+                                {% render_field fragrance_filter.form.market_type class='form-control' %}
+                                <label for="id_technology">Technology</label>
+                                {% render_field fragrance_filter.form.technology class='form-control' %}
+                                <label for="id_collection_prom">Collection</label>
+                                {% render_field fragrance_filter.form.collection_prom class='form-control' %}
+                                <label for="id_natural_extracts">Natural Extracts</label>
+                                {% render_field fragrance_filter.form.natural_extracts class='form-control' %}
+
                             </div>
 
 
@@ -148,118 +124,88 @@
                         <div class="row mb-3 ms-1 ">
 
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="essential_club">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Essential Club
-                                    </label>
-
-                                </div>
+                                <label for="id_essential_club">Essential Club</label>
+                                {% render_field fragrance_filter.form.essential_club %}
 
                             </div>
 
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="vigente">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Vigente
-                                    </label>
-
-                                </div>
+                                <label for="id_vigente">Vigente</label>
+                                {% render_field fragrance_filter.form.vigente %}
 
                             </div>
-
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="short_listed">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Short Listed
-                                    </label>
-
-                                </div>
+                                <label for="id_shortlisted">Short Listed</label>
+                                {% render_field fragrance_filter.form.shortlisted %}
 
                             </div>
-
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="won_selling">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Won Selling
-                                    </label>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="natural_derived">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Natural Derived
-                                    </label>
-
-                                </div>
-
-                            </div>
-
-                            <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="ecocert">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Ecocert
-                                    </label>
-
-                                </div>
+                                <label for="id_won_selling">Won Selling</label>
+                                {% render_field fragrance_filter.form.won_selling %}
 
                             </div>
 
 
                         </div>
+                        <!--  forth row  -->
+                        <div class="row mb-3 ms-1 ">
+                            <div class="col">
+                                <label for="id_natural_derived">Natural Derived</label>
+                                {% render_field fragrance_filter.form.natural_derived %}
+
+                            </div>
+
+
+                            <div class="col">
+                                <label for="id_ecocert">Ecocert</label>
+                                {% render_field fragrance_filter.form.ecocert %}
+
+
+                            </div>
+
+                            <div class="col">
+                                <label for="id_ecocert">Ecocert</label>
+                                {% render_field fragrance_filter.form.ecocert %}
+
+
+                            </div>
+                            <div class="col">
+                                <label for="id_bio_degradable">Bio Degradable</label>
+                                {% render_field fragrance_filter.form.bio_degradable %}
+
+                            </div>
+                        </div>
+
 
                         <!-- forth row -->
 
                         <div class="row mb-3 ms-1 ">
 
-                            <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="bio_degradable">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Bio Degradable
-                                    </label>
-
-                                </div>
-
-                            </div>
 
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="dangerous_good">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Dangerous Good
-                                    </label>
-
-                                </div>
+                                <label for="id_dangerous_good">Dangerous Good</label>
+                                {% render_field fragrance_filter.form.dangerous_good %}
 
                             </div>
-
                             <div class="col">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" name="ai">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        AI
-                                    </label>
-
-                                </div>
+                                <label for="id_ai">AI</label>
+                                {% render_field fragrance_filter.form.ai %}
 
                             </div>
+                            <div class="col">
+
+                            </div>
+                            <div class="col">
 
 
+                            </div>
                         </div>
+
 
                         <div class="mt-3">
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <input type="reset">
                         </div>
-
 
                     </form>
                 </div>
@@ -269,7 +215,6 @@
 
 
         <!------------------------------ END FILTER AREA ------------------------------------------->
-
         <p>List of Fragrances</p>
         <table class="table table-hover">
             <thead>
@@ -277,11 +222,11 @@
                 <th scope="col">Code</th>
                 <th scope="col">First Famlily</th>
                 <th scope="col">Expiry Date</th>
-                <th scope="col">Martet Name</th>
+                <th scope="col">Market Name</th>
             </tr>
             </thead>
             <tbody>
-            {% for fragrance in fragrance_list %}
+            {% for fragrance in fragrance_filter.qs %}
                 <tr>
                     <th scope="row"><a
                             href="{% url 'fragrance_detail' fragrance.id %}">{{ fragrance.fragrance_code }}</a></th>
@@ -320,35 +265,37 @@
             </tbody>
         </table>
 
-
-        <!-- --------------------Pagination section fragrance list -----------------------------  -->
-        {% if page_obj.has_other_pages %}
-            <ul class="pagination">
-                {% if page_obj.has_previous %}
-                    <li class="page-item "><a class="page-link"
-                                              href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
-                    </li>
-                {% else %}
-                    <li class="disabled"><span class="page-link">&laquo;</span></li>
-                {% endif %}
-                {% for i in page_obj.paginator.page_range %}
-                    {% if page_obj.number == i %}
-                        <li class="page-item active"><span class="page-link">{{ i }} </span></li>
-                    {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                {% if page_obj.has_next %}
-                    <li class="page-item"><a class="page-link"
-                                             href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-                {% else %}
-                    <li class="disabled"><span class="page-link">&raquo;</span></li>
-                {% endif %}
-            </ul>
-        {% endif %}
-        <!-- --------------------------------- END of pagination section  ------------------------------  -->
-
     </div>
+
+    {##}
+    {#    <!-- --------------------Pagination section fragrance list -----------------------------  -->#}
+    {#    {% if page_obj.has_other_pages %}#}
+    {#        <ul class="pagination">#}
+    {#            {% if page_obj.has_previous %}#}
+    {#                <li class="page-item "><a class="page-link"#}
+    {#                                          href="?page={{ page_obj.previous_page_number }}">&laquo;</a>#}
+    {#                </li>#}
+    {#            {% else %}#}
+    {#                <li class="disabled"><span class="page-link">&laquo;</span></li>#}
+    {#            {% endif %}#}
+    {#            {% for i in page_obj.paginator.page_range %}#}
+    {#                {% if page_obj.number == i %}#}
+    {#                    <li class="page-item active"><span class="page-link">{{ i }} </span></li>#}
+    {#                {% else %}#}
+    {#                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>#}
+    {#                {% endif %}#}
+    {#            {% endfor %}#}
+    {#            {% if page_obj.has_next %}#}
+    {#                <li class="page-item"><a class="page-link"#}
+    {#                                         href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>#}
+    {#            {% else %}#}
+    {#                <li class="disabled"><span class="page-link">&raquo;</span></li>#}
+    {#            {% endif %}#}
+    {#        </ul>#}
+    {#    {% endif %}#}
+    {#    <!-- --------------------------------- END of pagination section  ------------------------------  -->#}
+    {##}
+    {#    #}
 
 {% endblock content %}
 
