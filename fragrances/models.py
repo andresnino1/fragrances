@@ -101,7 +101,7 @@ class FragrancesModel(models.Model):
     box = models.IntegerField(verbose_name="box")
     cost_kilo_us = models.FloatField(verbose_name="cost kilo")
     selling_price_aud = models.FloatField(verbose_name="selling price")
-    first_family = models.ManyToManyField(FirstFamilyModel, verbose_name="first")  # Relation Many to Many (it is like a TAG)
+    first_family = models.ManyToManyField(FirstFamilyModel, verbose_name="first family")  # Relation Many to Many (it is like a TAG)
     second_family = models.ManyToManyField(SecondFamilyModel, verbose_name="second family")  # Relation Many to Many (it is like a TAG)
     third_family = models.ManyToManyField(ThirdFamilyModel, verbose_name="third family")  # Relation Many to Many (it is like a TAG)
     market_type = models.ManyToManyField(MarketTypeModel, verbose_name="market type")  # Relation Many to Many (it is like a TAG)
@@ -135,10 +135,11 @@ class FragrancesModel(models.Model):
 
 
 class CommentsModel(models.Model):
-    comment = models.TextField()
+    
     # el campo author on_delete, si se borra un author el comentario queda en la BD
     author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, verbose_name="author")
     fragrance = models.ForeignKey(FragrancesModel, on_delete=models.SET_NULL, null=True)
+    comment = models.CharField(max_length=90, verbose_name="comment")
 
     def __str__(self):
         return str(self.author)

@@ -3,28 +3,33 @@
 {% block content %}
 
     <div class="container">
-    <h2>{{ fragrance_detail.fragrance_code }}</h2>
-    <p>Comercial Name: {{ fragrance_detail.commercial_name }}</p>
-    <p>Box: {{ fragrance_detail.box }}</p>
-    <p>Applications: </p>
-    <ul class="list-group list-group-flush">
-        {% for i in fragrance_detail.application.all %}
-            <li class="list-group-item">{{ i }} </li>
-        {% endfor %}
+        <h2>{{ fragrance_detail.fragrance_code }}</h2>
+        <p>Comercial Name: {{ fragrance_detail.commercial_name }}</p>
+        <p>Box: {{ fragrance_detail.box }}</p>
+        <p>Applications: </p>
+        <ul class="list-group list-group-flush">
+            {% for i in fragrance_detail.application.all %}
+                <li class="list-group-item">{{ i }} </li>
+            {% endfor %}
 
-    </ul>
+        </ul>
 
 
+        <br>
+
+        <p>First Family:</p>
+        <ul class="list-group list-group-flush">
+            {% for i in fragrance_detail.first_family.all %}
+                <li class="list-group-item">{{ i }} </li>
+            {% endfor %}
+
+        </ul>
+        <br>
+       <h4>Comment per User:</h4>
+            {% for user in fragrance_detail.commentsmodel_set.all %}
+              <li class="list-group-item">{{ user }} </li>
+                {{ user.comment }}
+             {% endfor %}
+    </div>
     <br>
-
-    <p>First Family:</p>
-    <ul class="list-group list-group-flush">
-        {% for i in fragrance_detail.first_family.all %}
-            <li class="list-group-item">{{ i }} </li>
-        {% endfor %}
-
-    </ul>
-
-</div>
-
 {% endblock %}

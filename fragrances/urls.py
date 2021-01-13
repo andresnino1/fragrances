@@ -6,4 +6,5 @@ urlpatterns = [
     path('dashboard/', FragrancesList.as_view(), name='dashboard'),
     path('addfragrance/', AddFragrancesView.as_view(), name='add_fragrance'),
     path('fragrance/<int:pk>', FragrancesDetailView.as_view(), name='fragrance_detail'),
+   # path('dashboard1/', FragrancesList1.as_view(), name='dashboard1'),
 ]

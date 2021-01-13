@@ -33,7 +33,17 @@ class FragrancesList(ListView):
 
 
         
-        
+# class FragrancesList1(ListView):
+#     model = FragrancesModel
+#     template_name = 'dashboard1.html'
+#     context_object_name = 'fragrance_list'  # esta categoria renombra objetc_list por un nombre mas legible
+#     paginate_by = 3
+#
+# # In this section I am adding the filter as a context and it passes to the template
+#     def get_context_data(self, **kwargs):
+#         context=super().get_context_data(**kwargs)
+#         context['fragrance_filter'] = FragranceFilter(self.request.GET, queryset=self.get_queryset() )
+#         return context
 
 
 
