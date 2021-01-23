@@ -4,6 +4,9 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import FragrancesModel
 from .filters import FragranceFilter
+from .forms import CustomUserCreationForm
+
+
 
 
 # Create your views here.
@@ -11,11 +14,6 @@ from .filters import FragranceFilter
 # esta es la vista que retorna al home
 class HomePageView(TemplateView):
     template_name = 'home.html'
-
-
-# esta es la vista que retorna al dashboard
-class DashBoardView(TemplateView):
-    template_name = 'dashboard.html'
 
 
 # esta vista retorna la LISTA de fragramcias al dashboard
@@ -63,3 +61,9 @@ class AddFragrancesView(CreateView):
     fields = '__all__'
     template_name = "addfragrance.html"
     #success_url = reverse_lazy('dashboard')
+
+# this view will handle the user registration on the application
+class SignUpView(CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('dashboard')
+    template_name = 'registration/signup.html'
