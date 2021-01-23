@@ -7,7 +7,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-5">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0 px-5 ">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                 </li>
@@ -17,20 +17,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'add_fragrance' %}">Add Fragrance</a>
                 </li>
-
-
-                <li>
-                    {% if user.is_authenticated %}
-                        <p>Hi {{ user.username }}!</p> <p><a href="{% url 'logout' %}">Log Out</a></p>
-                        {% else %}
-                        <p>You are not logged in</p>
-                        <a href="{% url 'login' %}">Log In</a>
-                        <a href="{% url 'signup' %}">Sign Up</a>
-                    {% endif %}
-                </li>
-
-
             </ul>
+            {% if user.is_authenticated %}
+                <span class="navbar-text me-auto ">
+
+                    Hi {{ user.username }}!
+
+                </span>
+                <span class="navbar-text">
+                    <p class="nav-link mb-2 mb-lg-0"><a href="{% url 'logout' %}">Log Out</a></p>
+
+                </span>
+
+            {% else %}
+                <span class="navbar-text ">
+                    <p class="nav-link mb-2 mb-lg-0"><a href="{% url 'login' %}">Log In</a></p>
+
+                </span>
+
+                <span class="navbar-text  ">
+                    <p class="nav-link mb-2 mb-lg-0"><a href="{% url 'signup' %}">Sign Up</a></p>
+
+
+                </span>
+            {% endif %}
+
 
         </div>
     </div>

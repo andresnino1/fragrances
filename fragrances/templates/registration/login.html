@@ -1,13 +1,28 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block content %}
 
-<h2>Log In</h2>
-    <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <div class="container">
+        <div class="card border rounded-3 border-3 mb-3 mt-5">
+            <h2>Log In</h2>
 
-    <button type="submit">Log In</button>
-    </form>
+            <form method="post" class="p-3">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">{{ form.username.label }}</label>
 
+                    {% render_field form.username class="form-control" %}
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">{{ form.password.label }}</label>
+                    {% render_field form.password class="form-control" %}
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+        </div>
+    </div>
 {% endblock content %}

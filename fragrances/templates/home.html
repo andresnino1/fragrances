@@ -1,7 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>HOME - PROJECT</h1>
 
+    <div class="container">
+        <div class="card text-center mt-5">
+            <div class="card-header">
+                <h2>HOME - FRAGRANCES </h2>
+            </div>
+
+            <div class="card-body">
+                {% if user.is_authenticated %}
+
+
+                    <h5 class="card-title">Hi {{ user.username }}!</h5>
+
+                    <a href="{% url 'logout' %}" class="btn btn-primary">Log Out</a>
+
+                {% else %}
+
+                    <h5>You are not logged in</h5>
+                    <span>  <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>  </span>
+                    <span>   <a href="{% url 'signup' %}" class="btn btn-primary">Register New User</a> </span>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
 
 {% endblock content %}
