@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import FragrancesModel
 from .filters import FragranceFilter
 from .forms import CustomUserCreationForm
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 
@@ -65,5 +66,6 @@ class AddFragrancesView(CreateView):
 # this view will handle the user registration on the application
 class SignUpView(CreateView):
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('dashboard')
+    success_url = reverse_lazy('home')
     template_name = 'registration/signup.html'
+

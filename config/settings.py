@@ -55,7 +55,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [str(BASE_DIR.joinpath('fragrances/templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,4 +118,4 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'fragrances.CustomUser'
 LOGIN_REDIRECT_URL = 'dashboard' # this line redirect the user to dashboard after login
 LOGOUT_REDIRECT_URL = 'home' # this line redirect the user to home after logout
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #setting up email messages in console

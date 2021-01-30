@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from fragrances.views import HomePageView, FragrancesList, FragrancesDetailView, AddFragrancesView, SignUpView
 
 urlpatterns = [
