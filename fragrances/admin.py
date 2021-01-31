@@ -14,8 +14,15 @@ class CustomUserAdmin(UserAdmin):
     # fieldsets = UserAdmin.fieldsets + ((None, {'fields': ('age',)}),)
     # add_fieldsets = UserAdmin.add_fieldsets + ((None,{'fields':('age',)}),)
 
+#this class shows the comments of each fragrance in fragrances models
+class CommentInline(admin.TabularInline):
+    model = CommentsModel
 
-admin.site.register(FragrancesModel)
+class FragrancesAdmin(admin.ModelAdmin):
+    inlines = [CommentInline,
+               ]
+
+
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(ApplicationModel)
 admin.site.register(FirstFamilyModel)
@@ -29,3 +36,4 @@ admin.site.register(NotaSalidaModel)
 admin.site.register(NotaCuerpoModel)
 admin.site.register(NotaFondoModel)
 admin.site.register(CommentsModel)
+admin.site.register(FragrancesModel,FragrancesAdmin)

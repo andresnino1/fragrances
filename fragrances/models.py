@@ -137,7 +137,8 @@ class FragrancesModel(models.Model):
 class CommentsModel(models.Model):
     
     # el campo author on_delete, si se borra un author el comentario queda en la BD
-    author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, verbose_name="author")
+    #author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, verbose_name="author")
+    author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, verbose_name="author")
     fragrance = models.ForeignKey(FragrancesModel, on_delete=models.SET_NULL, null=True)
     comment = models.CharField(max_length=90, verbose_name="comment")
 
